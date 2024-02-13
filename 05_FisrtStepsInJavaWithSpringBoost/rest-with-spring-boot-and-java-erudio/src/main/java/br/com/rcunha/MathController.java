@@ -25,10 +25,26 @@ public class MathController {
 	}
 
 	private Double convertToDouble(String number) {
-		return null;
+		
+		if (number == null) {
+			return 0D;
+		}
+
+		//BR 10,25 -> US 10.25
+		String numero = number.replaceAll(",", ".");
+		if (isNumeric(numero)) {
+			return Double.parseDouble(numero);
+		}
+		
+		return 0D;
 	}
 
 	private boolean isNumeric(String number) {
-		return false;
+		if (number == null) { return false;	}
+		
+		//BR 10,25 -> US 10.25
+        String numero = number.replaceAll(",", ".");
+        
+		return numero.matches("[-+]?[0-9]*\\.?[0-9]+");
 	}
 } 
