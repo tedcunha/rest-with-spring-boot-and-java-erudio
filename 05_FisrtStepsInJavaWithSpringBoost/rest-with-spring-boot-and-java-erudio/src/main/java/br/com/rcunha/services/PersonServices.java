@@ -16,6 +16,13 @@ public class PersonServices {
 
 		logger.info("Finding one person");
 		
-		return new Person(); 
+		Person person = new Person();
+		person.setId(counter.incrementAndGet());
+		person.setFirstName("Ricardo");
+		person.setLastName("da Cunha");
+		person.setAddress("São Bernardo do Campo - São Paulo");
+		person.setGender("Masculino");
+		
+		return person; 
 	}
 }
